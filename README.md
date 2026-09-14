@@ -54,3 +54,29 @@ git push
 ```
 
 推送后 GitHub Pages 会在 1—2 分钟内自动重新发布。
+
+## 本地推送说明（维护者）
+
+仓库已注册 SSH Deploy Key（写权限），可直接推送。
+
+- 部署私钥：`202608意向合同/.github-pages-deploy/id_ed25519`（与仓库同级，**绝不要提交到任何仓库**）
+- 远端地址：`ssh://git@ssh.github.com:443/emeraldhillvilla/public-notice-and-competing-contracts.git`
+
+推送：
+
+    git add -A
+    git commit -m "更新材料"
+    git push
+
+换机或密钥失效时重新配置：
+
+    git remote set-url origin ssh://git@ssh.github.com:443/emeraldhillvilla/public-notice-and-competing-contracts.git
+    git config --local core.sshCommand "ssh -i <私钥路径> -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30"
+
+注意事项
+
+- 本机 `github.com:443`（HTTPS 推送）被网络阻断，统一走 `ssh.github.com:443`。
+- 材料合计约 245 MB，建议**分批** `git add` 后推送，单次 30–55 MB 更稳定。
+- Windows 上 OpenSSH 会校验私钥权限，若报 `bad permissions`，执行：
+  `icacls <私钥路径> /inheritance:r /grant:r "%USERNAME%:R"`
+- 单文件超过 50 MB 时 GitHub 会给出告警（不阻断）；超过 100 MB 会被拒收。
