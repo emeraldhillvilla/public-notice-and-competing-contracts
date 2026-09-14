@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+
+<!-- ================= 分享卡片（微信/朋友圈等按 Open Graph 抓取）=================
+     1) og:image 必须是可直连的 JPG/PNG 绝对地址，且不能是 WebP——微信服务端不认 WebP，
+        所以这张卡片图单独用 JPEG（share-card.jpg），没有跟着页面截图一起转 WebP。
+     2) 微信会缓存卡片信息约 24 小时。改图或改文案后想立刻生效，最稳的办法是换个文件名
+        （例如 share-card-2.jpg）并同步改下面几处地址。
+     3) 卡片小图按正方形展示，图片本身已按 1:1 提供，不会被裁到文字。 -->
+<meta name="description" content="大亚湾翡翠山别墅小区电子投票选聘物业服务企业的操作图解：从打开粤省事、找到投票入口，到刷脸认证与提交，每步截图都圈出该点哪里。投票时间 2026 年 9 月 15 日 10:00 至 10 月 15 日 10:00。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="粤省事投票操作指引">
+<meta property="og:title" content="粤省事投票操作指引｜大亚湾翡翠山别墅小区">
+<meta property="og:description" content="小区电子投票选聘物业服务企业，每步截图都圈出该点哪里，长者也能照着做。9 月 15 日 10:00 开放，10 月 15 日 10:00 截止。">
+<meta property="og:url" content="https://emeraldhillvilla.github.io/feicuishan-vote-guide/">
+<meta property="og:image" content="https://emeraldhillvilla.github.io/feicuishan-vote-guide/share-card.jpg">
+<meta property="og:image:secure_url" content="https://emeraldhillvilla.github.io/feicuishan-vote-guide/share-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="粤省事投票指引：小区湖景前的标题图">
+<meta itemprop="image" content="https://emeraldhillvilla.github.io/feicuishan-vote-guide/share-card.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="粤省事投票操作指引｜大亚湾翡翠山别墅小区">
+<meta name="twitter:description" content="小区电子投票选聘物业服务企业，每步截图都圈出该点哪里，长者也能照着做。">
+<meta name="twitter:image" content="https://emeraldhillvilla.github.io/feicuishan-vote-guide/share-card.jpg">
+
+<title>粤省事 · 业主投票操作指引</title>
+<style>
+  :root{
+    /* 配色取自粤省事 logo：蓝 #039FEA、黄绿 #ABCD05、灰 #898989。
+       logo 的蓝绿都很亮，直接承担文字对比度不足（#039FEA 白底仅 2.6:1），
+       故文字与实心块用同色相加深版（--blue-deep / --green-deep），原色只用于强调。 */
+    --paper:#F3F8FB;
+    --card:#FFFFFF;
+    --ink:#0A3F5C;
+    --ink-soft:#47606E;
+    --ink-mute:#6E8189;
+    --blue:#039FEA;
+    --blue-deep:#076A99;
+    --blue-soft:#E1F3FC;
+    --green:#ABCD05;
+    --green-soft:#F2F8DE;
+    --brick:#A8382A;
+    --brick-soft:#FBEDEA;
+    --line:#D7E7EF;
+    --radius:18px;
+    --shadow:0 1px 2px rgba(10,63,92,.05), 0 10px 28px -18px rgba(10,63,92,.30);
+    --gutter:18px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:17.5px;
+    line-height:1.75;
+    letter-spacing:.01em;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:rgba(3,159,234,.16);
+    overflow-x:hidden;
+  }
+  img{max-width:100%;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 var(--gutter) 72px;}
+
+  /* 键盘可达性：统一的焦点环 */
+  a:focus-visible,summary:focus-visible,.shot:focus-visible,button:focus-visible{
+    outline:3px solid var(--blue-deep);
+    outline-offset:3px;
+    border-radius:8px;
+  }
+
+  /* ---------- 首屏 ---------- */
+  .hero{
+    /* 小区实景照片 + 两层深色蒙版：
+       第一层自上而下渐深，保证底部信息卡的对比度；
+       第二层左侧偏深，让左对齐的标题压得住画面；
+       照片压到 1500px／255KB，窄屏另换 820px 小图（见下方断点）。 */
+    background-color:var(--ink);
+    background-image:
+      linear-gradient(180deg, rgba(6,34,52,.44) 0%, rgba(6,34,52,.73) 58%, rgba(6,34,52,.94) 100%),
+      linear-gradient(100deg, rgba(6,34,52,.52) 0%, rgba(6,34,52,.06) 58%, rgba(6,34,52,.32) 100%),
+      url("翡翠山环湖别墅.jpg?v=2");
+    background-size:cover;
+    background-position:center 45%;
+    background-repeat:no-repeat;
+    color:#EAF4FA;
+    border-radius:0 0 26px 26px;
+    /* 与 .wrap 使用同一 gutter，保证首屏文字与正文左对齐 */
+    padding:34px var(--gutter) 30px;
+    margin:0 0 26px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:auto -60px -90px auto;
+    width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(3,159,234,.42), transparent 68%);
+    pointer-events:none;
+  }
+  .hero > *{position:relative;z-index:1;}
+  /* 与 .wrap 的内容宽度一致（920 减去两侧 gutter），确保首屏与正文左对齐 */
+  .hero-inner{max-width:calc(920px - var(--gutter) * 2);margin:0 auto;}
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;font-weight:600;letter-spacing:.14em;
+    color:var(--green);
+    border:1px solid rgba(171,205,5,.5);
+    border-radius:999px;
+    padding:4px 12px;
+    margin-bottom:16px;
+  }
+  .hero h1{
+    margin:0 0 10px;
+    font-size:30px;
+    line-height:1.28;
+    letter-spacing:-.01em;
+    font-weight:700;
+  }
+  .hero .sub{
+    margin:0;
+    color:#A8C6D6;
+    font-size:16px;
+  }
+  /* 关键信息：自动列数，窄屏 1 列、宽屏自动 2 列 */
+  .facts{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:10px;
+    margin-top:22px;
+    list-style:none;
+    padding:0;
+  }
+  .fact{
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;
+    padding:11px 14px;
+    display:flex;
+    gap:10px;
+    align-items:baseline;
+    flex-wrap:wrap;
+  }
+  .fact .k{
+    font-size:13px;
+    color:#94B2C4;
+    flex:0 0 auto;
+    min-width:5em;
+    margin:0;
+  }
+  .fact .v{
+    margin:0;
+    font-size:16.5px;
+    font-weight:600;
+    color:#EAF4FA;
+    flex:1 1 auto;
+    min-width:0;
+  }
+  .fact .v em{color:var(--green);font-style:normal;}
+
+  /* ---------- 通用 ---------- */
+  .notice{
+    border-radius:var(--radius);
+    padding:16px 18px;
+    margin:0 0 26px;
+    font-size:16.5px;
+    border:1px solid;
+  }
+  .notice strong{display:block;margin-bottom:4px;font-size:17px;}
+  .notice--brick{background:var(--brick-soft);border-color:#F0CFC8;color:#7E2C1E;}
+  .notice--info{background:var(--green-soft);border-color:#DAE7A8;color:#4A5C10;}
+
+  /* ---------- 开头：长按识别进入粤省事 ---------- */
+  .entry{
+    background:var(--card);
+    border:2px solid var(--blue);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px 18px;
+    margin:0 0 22px;
+    display:grid;
+    /* 用 minmax(0,1fr) 而非 1fr 作防护：1fr 的最小尺寸默认是 auto，
+       日后若把二维码换成固有宽度更大的图，栅格列会被撑开导致横向溢出。
+       当前尺寸下两种写法渲染一致（实测卡片宽 461px、无溢出）。 */
+    grid-template-columns:minmax(0, 1fr);
+    gap:16px;
+    justify-items:center;
+    text-align:center;
+  }
+  .entry > div{min-width:0;}
+  .entry .code{
+    width:min(82%, 300px);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .entry .code img{display:block;width:100%;height:auto;border-radius:8px;}
+  /* 码下方的按钮式提示：告诉长者这里可以长按，不是可点击的普通按钮 */
+  .entry .code-btn{
+    display:block;
+    background:var(--blue-deep);
+    color:#fff;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-align:center;
+    padding:9px 0;
+    border-radius:999px;
+  }
+  .entry-tag{
+    display:inline-block;
+    background:var(--blue-soft);
+    color:var(--blue-deep);
+    font-size:13px;font-weight:700;letter-spacing:.08em;
+    border-radius:999px;
+    padding:4px 12px;
+    margin-bottom:10px;
+  }
+  .entry h2{
+    margin:0 0 12px;
+    font-size:20px;
+    font-weight:700;
+    line-height:1.45;
+    color:var(--ink);
+  }
+  .entry ol{
+    margin:0 0 12px;
+    padding:0;
+    list-style:none;
+    counter-reset:estep;
+  }
+  .entry ol li{
+    /* 用「负 text-indent + 行内圆点」而不是绝对定位：
+       绝对定位时 top 的 em 会按圆点自己的字号(14px)解析，垂直位置随字体度量漂移；
+       行内 + vertical-align:middle 会跟随文字中线，各机型一致。 */
+    padding-left:36px;
+    text-indent:-36px;
+    margin-bottom:9px;
+    color:var(--ink-soft);
+    font-size:17px;
+    line-height:1.75;
+    text-align:left;
+    counter-increment:estep;
+  }
+  .entry ol li::before{
+    content:counter(estep);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:var(--blue-deep);
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    line-height:1;
+    vertical-align:middle;
+    /* vertical-align:middle 是按英文字母 x-height 中线对齐，
+       汉字的视觉中心比它高约 0.12em，故向上做一点纯视觉微调（不影响布局） */
+    transform:translateY(-2px);
+    margin-right:12px;
+    text-indent:0;
+  }
+  .entry ol li b{color:var(--ink);font-weight:600;}
+  .entry .fallback{
+    margin:0;
+    font-size:15.5px;
+    color:var(--ink-mute);
+    text-align:left;
+  }
+  .entry .fallback b{color:var(--blue-deep);}
+  @media (min-width:760px){
+    .entry{
+      grid-template-columns:300px minmax(0, 1fr);
+      justify-items:start;
+      text-align:left;
+      padding:26px;
+      gap:28px;
+    }
+    .entry .code{width:300px;}
+    .entry h2{font-size:22px;}
+  }
+
+  h2.phase{
+    display:flex;align-items:center;gap:12px;
+    font-size:15px;
+    letter-spacing:.1em;
+    font-weight:700;
+    color:var(--blue-deep);
+    margin:44px 0 18px;
+  }
+  h2.phase::after{
+    content:"";
+    flex:1;height:1px;
+    background:linear-gradient(90deg,var(--line),transparent);
+  }
+  h2.phase .num{
+    display:grid;place-items:center;
+    width:26px;height:26px;flex:0 0 26px;
+    border-radius:50%;
+    background:var(--blue-deep);color:#fff;
+    font-size:14px;letter-spacing:0;
+  }
+
+  .steps{display:grid;grid-template-columns:1fr;gap:16px;}
+  .step{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 18px;
+    box-shadow:var(--shadow);
+    min-width:0;
+  }
+  .step-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:4px;}
+  .step-no{
+    flex:0 0 34px;width:34px;height:34px;
+    border-radius:11px;
+    background:var(--blue-soft);
+    color:var(--blue-deep);
+    display:grid;place-items:center;
+    font-weight:700;font-size:15px;
+    font-variant-numeric:tabular-nums;
+  }
+  .step-title{
+    margin:5px 0 0;
+    font-size:18.5px;
+    font-weight:700;
+    line-height:1.45;
+    letter-spacing:-.005em;
+    min-width:0;
+  }
+  /* 每一步的「详细说明」默认收起：
+     页面主体只留「编号+标题 / 截图 / 一行提示」，长者扫读更快，需要细节再点开。 */
+  details.step-more{margin-top:12px;border-top:1px dashed var(--line);}
+  details.step-more summary{
+    cursor:pointer;list-style:none;position:relative;
+    padding:11px 26px 11px 0;
+    font-size:15px;font-weight:600;color:var(--blue-deep);
+  }
+  details.step-more summary::-webkit-details-marker{display:none;}
+  details.step-more summary::after{
+    content:"";position:absolute;right:7px;top:50%;
+    width:7px;height:7px;
+    border-right:2px solid var(--blue-deep);
+    border-bottom:2px solid var(--blue-deep);
+    transform:translateY(-70%) rotate(45deg);
+    transition:transform .22s ease;
+  }
+  details.step-more[open] summary::after{transform:translateY(-30%) rotate(-135deg);}
+  details.step-more .body{padding:0 0 13px;color:var(--ink-soft);font-size:16px;}
+  details.step-more .body b{color:var(--ink);font-weight:600;}
+
+  /* 截图：定位基准框，宽度随容器自适应，最宽 340 */
+  .shot-box{position:relative;width:100%;max-width:340px;margin:0 auto;}
+  /* picture 默认是行内元素，其内部 img 为块级时会多出一个空行盒，这里统一块级化 */
+  picture{display:block;}
+  .shot{
+    display:block;
+    width:100%;
+    height:auto;
+    margin:0;
+    border-radius:14px;
+    border:1px solid var(--line);
+    box-shadow:0 2px 4px rgba(10,63,92,.06), 0 18px 36px -26px rgba(10,63,92,.45);
+    background:#EAF2F7;
+    cursor:zoom-in;
+    transition:transform .25s cubic-bezier(.22,.7,.3,1), box-shadow .25s ease;
+  }
+  @media (hover:hover){
+    .shot:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(10,63,92,.08), 0 26px 46px -26px rgba(10,63,92,.5);}
+  }
+  /* 放大提示放在图片下方，不覆盖在图上。
+     若浮在右下角，它会压住部分截图底部的操作按钮（如「下一步」「开始办理」），
+     也会挡住标注箭头的尖端，让人误以为那只是一条直线。 */
+  .zoom-hint{
+    display:block;
+    width:max-content;
+    max-width:100%;
+    margin:9px auto 0;
+    background:rgba(10,50,74,.78);
+    color:#EAF2FA;
+    font-size:12.5px;
+    line-height:1;
+    padding:6px 11px;
+    border-radius:999px;
+    pointer-events:none;
+  }
+  .shot-note{
+    text-align:center;
+    color:var(--ink-mute);
+    font-size:14px;
+    margin:6px 0 0;
+  }
+
+  /* ---------- 点击放大 ---------- */
+  .zoom{
+    position:fixed;inset:0;z-index:120;
+    background:rgba(6,34,52,.94);
+    display:none;
+    align-items:center;justify-content:center;
+    padding:16px;
+    overscroll-behavior:contain;
+  }
+  .zoom.on{display:flex;}
+  .zoom img{
+    max-width:100%;
+    max-height:calc(100vh - 32px);
+    width:auto;
+    border-radius:12px;
+    box-shadow:0 24px 70px rgba(0,0,0,.55);
+  }
+  .zoom .cap{
+    position:absolute;left:0;right:0;bottom:14px;
+    text-align:center;color:#CFE2EE;font-size:14px;
+    padding:0 20px;
+  }
+  .zoom .close{
+    position:absolute;top:12px;right:12px;
+    width:44px;height:44px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.28);
+    background:rgba(255,255,255,.1);
+    color:#fff;font-size:22px;line-height:1;
+    display:grid;place-items:center;
+    cursor:pointer;
+  }
+  body.locked{overflow:hidden;}
+
+  /* ---------- 须知 / FAQ ---------- */
+  .panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 18px;
+    box-shadow:var(--shadow);
+  }
+  .panel + .panel{margin-top:16px;}
+  .panel h3{margin:0 0 10px;font-size:18px;font-weight:700;}
+  .panel p{margin:0 0 10px;color:var(--ink-soft);font-size:16.5px;}
+  .panel p:last-child{margin-bottom:0;}
+  ul.list{margin:0;padding-left:0;list-style:none;}
+  ul.list li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:9px;
+    color:var(--ink-soft);
+    font-size:16.5px;
+  }
+  ul.list li::before{
+    content:"";
+    position:absolute;left:2px;top:.62em;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--blue);
+  }
+  ul.list li b{color:var(--ink);font-weight:600;}
+
+  details.faq{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--card);
+    margin-bottom:10px;
+    overflow:hidden;
+  }
+  details.faq[open]{border-color:#B8DCF0;}
+  details.faq summary{
+    cursor:pointer;
+    list-style:none;
+    padding:15px 44px 15px 17px;
+    font-weight:600;
+    font-size:16.5px;
+    position:relative;
+    color:var(--ink);
+  }
+  details.faq summary::-webkit-details-marker{display:none;}
+  details.faq summary::after{
+    content:"";
+    position:absolute;right:19px;top:50%;
+    width:8px;height:8px;
+    border-right:2px solid var(--blue-deep);
+    border-bottom:2px solid var(--blue-deep);
+    transform:translateY(-70%) rotate(45deg);
+    transition:transform .22s ease;
+  }
+  details.faq[open] summary::after{transform:translateY(-30%) rotate(-135deg);}
+  details.faq .body{
+    padding:14px 17px 16px;
+    color:var(--ink-soft);
+    font-size:16.5px;
+    border-top:1px solid var(--line);
+  }
+  details.faq .body b{color:var(--ink);font-weight:600;}
+
+  /* ---------- 结尾：小区实景 ---------- */
+  /* 用 aspect-ratio 裁成横幅，避免图片太高把页尾拉长。
+     注意必须写 height:auto：img 标签上的 height 属性会作为表现性提示生效，
+     会把 aspect-ratio 顶掉，导致图片按原始比例撑得很高（这里踩过坑）。 */
+  .closing{margin:40px 0 0;}
+  .closing img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    object-position:center 42%;
+    border-radius:22px;
+    border:1px solid var(--line);
+    box-shadow:0 18px 40px -26px rgba(10,63,92,.5);
+  }
+  .closing figcaption{
+    margin-top:11px;
+    text-align:center;
+    color:var(--ink-mute);
+    font-size:14.5px;
+    letter-spacing:.02em;
+  }
+
+  footer.foot{
+    margin-top:38px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    color:var(--ink-mute);
+    font-size:14.5px;
+    line-height:1.85;
+  }
+  footer.foot b{color:var(--ink-soft);font-weight:600;}
+
+  /* ---------- 动效 ---------- */
+  .reveal{opacity:0;transform:translateY(14px);}
+  .reveal.in{opacity:1;transform:none;transition:opacity .55s ease, transform .55s cubic-bezier(.22,.7,.3,1);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.reveal.in{opacity:1;transform:none;transition:none;}
+    details.faq summary::after,.shot{transition:none;}
+  }
+
+  /* ================= 断点 ================= */
+
+  /* 窄屏换用 820px 小图（80KB），明显省流量；蒙版参数与主样式逐字一致 */
+  @media (max-width:560px){
+    .hero{
+      background-image:
+        linear-gradient(180deg, rgba(6,34,52,.44) 0%, rgba(6,34,52,.73) 58%, rgba(6,34,52,.94) 100%),
+        linear-gradient(100deg, rgba(6,34,52,.52) 0%, rgba(6,34,52,.06) 58%, rgba(6,34,52,.32) 100%),
+        url("翡翠山环湖别墅_小图.jpg?v=2");
+    }
+  }
+
+  /* 小手机（iPhone SE 等） */
+  @media (max-width:400px){
+    :root{--gutter:14px;}
+    body{font-size:17px;}
+    .hero{padding:28px var(--gutter) 26px;}
+    .hero h1{font-size:26px;}
+    .step{padding:16px 14px;}
+    .step-title{font-size:17.5px;}
+    .zoom-hint{font-size:12px;}
+  }
+
+  /* 平板竖屏及以上：步骤两栏 */
+  @media (min-width:760px){
+    :root{--gutter:28px;}
+    body{font-size:18px;}
+    .hero{padding:46px var(--gutter) 38px;border-radius:0 0 30px 30px;}
+    .hero h1{font-size:38px;}
+    .hero .sub{font-size:17px;}
+    .steps{grid-template-columns:1fr 1fr;gap:20px;}
+    h2.phase{margin-top:56px;font-size:16px;}
+    .shot-box{max-width:300px;}
+    .panel{padding:26px;}
+    .step{padding:24px 22px;}
+    details.step-more .body{font-size:16.5px;}
+    .notice{font-size:17px;}
+    ul.list li,.panel p,details.faq summary,details.faq .body,details.step-more .body{font-size:17px;}
+  }
+
+  /* 宽屏：截图稍收窄，阅读栏不失控 */
+  @media (min-width:1100px){
+    .hero h1{font-size:42px;}
+    .shot-box{max-width:310px;}
+  }
+
+  /* 横屏矮视口：首屏收紧，避免把内容推出屏幕 */
+  @media (orientation:landscape) and (max-height:520px){
+    .hero{padding:22px 20px 20px;}
+    .hero h1{font-size:26px;}
+    .facts{margin-top:14px;}
+    .fact{padding:8px 12px;}
+  }
+
+  /* ---------- 打印 ---------- */
+  @media print{
+    :root{--gutter:0px;}
+    body{background:#fff;font-size:11.5pt;}
+    .hero{background:#fff;color:#000;border:1px solid #999;border-radius:0;margin:0 0 18px;}
+    .hero h1{color:#000;font-size:22pt;}
+    .hero .sub,.fact .k{color:#333;}
+    .hero::after{display:none;}
+    .fact{border-color:#bbb;background:#fff;}
+    .fact .v{color:#000;}
+    .fact .v em{color:#000;}
+    .eyebrow{color:#000;border-color:#999;}
+    .facts{grid-template-columns:1fr 1fr;}
+    .steps{grid-template-columns:1fr 1fr;gap:14px;}
+    .step,.panel,details.faq{box-shadow:none;border-color:#ccc;break-inside:avoid;}
+    .reveal{opacity:1;transform:none;}
+    .zoom-hint,.zoom{display:none !important;}
+    /* 折叠内容不能靠 CSS 展开：实测把闭合 details 里的 .body 设为 display:block 后，
+       details 的总高度仍只有 24px，说明浏览器是用插槽机制隐藏内容的，作者样式覆盖不了。
+       所以改由页面底部脚本在 beforeprint 时统一设为 open。 */
+    details.step-more summary{display:none;}
+    details.faq summary::after{display:none;}
+    details.step-more summary::after{display:none;}
+    .shot-box{max-width:230px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">惠州市 · 业主大会电子投票</span>
+    <h1>粤省事投票操作指引</h1>
+    <p class="sub">大亚湾翡翠山别墅小区 · 电子投票选聘物业服务企业</p>
+
+    <ul class="facts">
+      <li class="fact"><span class="k">开放时间</span><span class="v"><em>2026 年 9 月 15 日 10:00</em> 起开放投票</span></li>
+      <li class="fact"><span class="k">认证方式</span><span class="v">人脸识别实名认证</span></li>
+      <li class="fact"><span class="k">操作入口</span><span class="v">微信「粤省事」小程序</span></li>
+      <li class="fact"><span class="k">投票期限</span><span class="v"><em>至 2026 年 10 月 15 日 10:00 止</em>，逾期无法补投，建议尽快完成</span></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 开头：长按识别直接进入粤省事，省去学搜索 -->
+  <section class="entry reveal">
+    <div class="code">
+      <picture>
+        <source type="image/webp" srcset="粤省事葵花码.webp?v=3">
+        <img src="粤省事葵花码.png?v=3" alt="粤省事小程序码，长按识别即可打开粤省事" width="820" height="820">
+      </picture>
+      <span class="code-btn">长按识别二维码</span>
+    </div>
+    <div>
+      <span class="entry-tag">从这里开始</span>
+      <h2>长按这个二维码，直接打开粤省事</h2>
+      <ol>
+        <li>用手指<b>长按</b>这个码，等菜单弹出来</li>
+        <li>点菜单里的「<b>识别小程序</b>」（或写着「粤省事」的那一项）</li>
+        <li>进去后先确认<b>左上角城市是「惠州」</b>，不是「惠州」就点它切换</li>
+      </ol>
+      <p class="fallback">长按没反应？直接在微信里搜索「<b>粤省事</b>」，一样能进，进去后同样按下面 12 步走。</p>
+    </div>
+  </section>
+
+  <div class="notice notice--brick reveal">
+    <strong>请务必在投票通道开放后再进行</strong>
+    通道于 <b>2026 年 9 月 15 日 10:00</b> 开放、<b>10 月 15 日 10:00</b> 截止。在开放之前进入，议题列表会显示「没有查询到记录」，属正常现象，不必担心。
+  </div>
+
+  <div class="notice notice--info reveal">
+    <strong>一句话看懂 · 图中红框就是要点的位置</strong>
+    长按上面的码打开粤省事（或微信搜「粤省事」），确认城市是「惠州」→ <b>底部点「办事」</b> → 在「人生事」里点「<b>住房置业</b>」→ 点开「<b>业主投票决议</b>」→ 弹窗点右边的「确定」→ 按提示完成人脸认证（其中会跳到微信核验页，打勾后点「下一步」）→ 点「开始投票」→ 在「进行中」里选择你认可的物业服务企业并提交。每张截图都可以点击放大，看不清时点开看。
+  </div>
+
+  <!-- ================= 第一阶段 ================= -->
+  <h2 class="phase"><span class="num">1</span>找到投票入口</h2>
+  <div class="steps">
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">01</span>
+        <h3 class="step-title">打开粤省事，确认城市是「惠州」，点底部「办事」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="01_粤省事首页_点底部办事.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="01_粤省事首页_点底部办事.jpg?v=4" alt="粤省事首页，确认左上角为惠州，点底部办事" width="1080" height="2223">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">先确认「惠州」，再点底部的「办事」</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">打开微信里的「粤省事」（或长按本页上方的二维码）。<b>若左上角不是「惠州」</b>，点城市名即可切换；确认后<b>点屏幕最下方的「办事」</b>。</div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">02</span>
+        <h3 class="step-title">在「人生事」里点「住房置业」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="02_办事页_人生事分组内点住房置业.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="02_办事页_人生事分组内点住房置业.jpg?v=4" alt="办事页，在人生事分组里点住房置业" width="1080" height="2228">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">「人生事」分组里，第二排第三个</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">「办事」页要<b>往下滑一段</b>才看得到「人生事」分组。这一格在<b>第二排第三个</b>，左边是「教育」，右边是「不动产」。</div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">03</span>
+        <h3 class="step-title">点最上面第一项「业主投票决议」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="03_住房置业页_点业主投票决议.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="03_住房置业页_点业主投票决议.jpg?v=4" alt="住房置业页，第一项业主投票决议" width="1080" height="2217">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">就在列表最上面第一项</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">「业主投票决议」<b>就在列表最上面第一项</b>，不用往下翻。下面的网签合同查询、预售许可证查询、维修资金查询都与本次投票无关。</div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">04</span>
+        <h3 class="step-title">弹出提示，点<b>右边</b>的「确定」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="04_弹出提示_点右边确定.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="04_弹出提示_点右边确定.jpg?v=4" alt="登录验证提示弹窗，点右边的确定" width="1080" height="2217">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">点右边「确定」，不要点左边的「取消」</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">这条提示是正常的实名核验环节。<b>弹窗下面有两个按钮</b>：左边「取消」、右边「确定」。点到「取消」会退出，得从头再来。</div>
+      </details>
+    </article>
+
+  </div>
+
+  <!-- ================= 第二阶段 ================= -->
+  <h2 class="phase"><span class="num">2</span>完成实名认证</h2>
+  <div class="steps">
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">05</span>
+        <h3 class="step-title">进入「选择登录方式」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="05_选择登录方式_默认广东省统一身份认证.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="05_选择登录方式_默认广东省统一身份认证.jpg?v=4" alt="选择登录方式默认页" width="1080" height="1919">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">默认选中第一项</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">页面列出四种登录方式，<b>默认选中第一项</b>，此时下方「我同意」的方框还没有勾。</div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">06</span>
+        <h3 class="step-title">选方式、打勾、点「下一步」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="06_选择登录方式_改选人脸识别并勾选同意.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="06_选择登录方式_改选人脸识别并勾选同意.jpg?v=4" alt="改选人脸识别并勾选同意" width="1080" height="1919">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">① 选这项 → ② 这里打勾 → ③ 点下一步</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">本页<b>三步缺一不可</b>：① 选「人脸识别认证」→ ② 把「我同意」打勾 → ③ 点底部「下一步」。<b>不打勾就点不了下一步。</b>（选哪种方式最后都要刷脸。）</div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">07</span>
+        <h3 class="step-title">核对证件信息，点「开始人脸识别验证」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="07_登录页_人脸识别验证填写证件信息.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="07_登录页_人脸识别验证填写证件信息.jpg?v=4" alt="人脸识别验证页" width="1080" height="1919">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">① 先打勾 → ② 再点按钮刷脸（图中个人信息已遮蔽）</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">证件信息由系统自动带出，<b>无需手动填写</b>。先勾选「我同意」，再点蓝色按钮「开始人脸识别验证」，然后按提示刷脸。</div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">08</span>
+        <h3 class="step-title">微信人脸核验：确认打勾，点「下一步」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="08_微信人脸识别授权页_打勾并点下一步.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="08_微信人脸识别授权页_打勾并点下一步.jpg?v=4" alt="微信人脸识别授权页" width="1080" height="2232">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">① 确认打勾 → ② 点下一步</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">这里会跳到<b>微信自己的人脸核验页</b>（页面上写明「粤省事 申请使用」）。确认「我已阅读并同意」<b>已打勾</b>（通常默认勾好），再点绿色按钮「下一步」，然后按提示刷脸。</div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">09</span>
+        <h3 class="step-title">授权登录，点「开始办理」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="09_授权登录页_点击开始办理.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="09_授权登录页_点击开始办理.jpg?v=4" alt="授权登录页" width="1080" height="1919">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">点击「开始办理」</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">刷脸通过后进入「授权登录」页，写明由<b>惠州市住房和城乡建设局</b>提供服务，信息仅用于核验业主身份。确认后点「开始办理」。</div>
+      </details>
+    </article>
+
+  </div>
+
+  <!-- ================= 第三阶段 ================= -->
+  <h2 class="phase"><span class="num">3</span>进入投票并表决</h2>
+  <div class="steps">
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">10</span>
+        <h3 class="step-title">进入「业主投票决议」事项页</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="10_业主投票决议页_投票须知与要求.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="10_业主投票决议页_投票须知与要求.jpg?v=4" alt="业主投票决议事项页" width="1080" height="1919">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">先看须知，不用操作</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">正文是「投票须知 / 投票要求」，说明依据《民法典》第 278 条，选聘物业属于业主共同决定事项。<b>这一屏只是说明，无需操作。</b></div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">11</span>
+        <h3 class="step-title">滑到页面底部，点「开始投票」</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="11_业主投票决议页底部_点击开始投票.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="11_业主投票决议页底部_点击开始投票.jpg?v=4" alt="页面底部开始投票按钮" width="1080" height="1919">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">底部蓝色按钮「开始投票」</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">这一页比较长，<b>一直往下滑到底部</b>，看到蓝色按钮「开始投票」就点它。页面上还有「咨询电话」，可随时查看。</div>
+      </details>
+    </article>
+
+    <article class="step reveal">
+      <div class="step-head">
+        <span class="step-no">12</span>
+        <h3 class="step-title">在「进行中」里选择你认可的物业企业</h3>
+      </div>
+      <div class="shot-box">
+        <picture>
+          <source type="image/webp" srcset="12_议题列表页_进行中0项暂无记录.webp?v=4">
+          <img class="shot" loading="lazy" decoding="async" src="12_议题列表页_进行中0项暂无记录.jpg?v=4" alt="议题列表进行中暂无记录" width="1080" height="1919">
+        </picture>
+        <span class="zoom-hint">点击放大</span>
+      </div>
+      <p class="shot-note">此图为开放前的状态：进行中 0 项、已结束 2 项</p>
+      <details class="step-more">
+        <summary>详细说明</summary>
+        <div class="body">两个页签：「<b>进行中</b>」和「<b>已结束</b>」。投票开放前「进行中」是 0 项，属正常；开放后本次议题会出现在这里——<b>点开它，选你认可的物业服务企业，按提示提交</b>。</div>
+      </details>
+    </article>
+
+  </div>
+
+  <!-- ================= 投票须知 ================= -->
+  <h2 class="phase"><span class="num">4</span>投票前必读</h2>
+
+  <div class="panel reveal">
+    <h3>关于本次表决</h3>
+    <ul class="list">
+      <li><b>事项名称</b>：业主投票决议（电子投票选聘物业服务企业）</li>
+      <li><b>主管单位</b>：惠州市住房和城乡建设局</li>
+      <li><b>法律依据</b>：《民法典》第二百七十八条——选聘、解聘物业服务企业属业主共同决定事项</li>
+      <li><b>表决规则</b>：参与表决需达到专有部分面积和业主人数「双三分之二」，同意需达到参与表决的「双过半」，具体以粤省事页面与实际通告为准</li>
+    </ul>
+  </div>
+
+  <div class="panel reveal">
+    <h3>九个常见问题</h3>
+
+    <details class="faq">
+      <summary>进不去、或查不到议题，怎么办？</summary>
+      <div class="body"><b>第一件事，先看时间对不对。</b><br>
+      投票通道 <b>2026 年 9 月 15 日 10:00 开放</b>，在这之前议题列表显示「没有查询到记录」是正常的，看不到本次议题不必担心；<b>2026 年 10 月 15 日 10:00 截止</b>，通道关闭后既不能再投，也无法补投。确认现在还在这个区间内，再按下面四条排查：<br>
+      ① 先确认左上角城市是「<b>惠州</b>」。<br>
+      ② <b>如果按步骤找不到「住房置业」，多半是「人生事」分组还没滑到</b>——它排在「首页服务」「常用服务」之后，需要往下滑一段才看得见。也可以在粤省事的搜索栏直接搜「<b>业主</b>」二字，同样能到达。<br>
+      ③ <b>建议用本页顶部的二维码，或直接在微信里搜索「粤省事」进入</b>，不要扫描来源不明的二维码——粤省事显示哪个城市跟手机定位有关，不同的二维码可能进入别的城市页面。<br>
+      ④ 若仍查不到，议题列表页有一行「<b>如无法查询到您的投票议题，请点击这里</b>」，点击后按提示处理。</div>
+    </details>
+
+    <details class="faq">
+      <summary>「已结束(2)」是什么意思？</summary>
+      <div class="body">那是<b>以往已经结束的投票记录</b>，能正常显示说明你的业主身份已经核验通过，不是故障。本次议题会在开放后出现在「进行中」页签。</div>
+    </details>
+
+    <details class="faq">
+      <summary>家人能代投吗？</summary>
+      <div class="body">按规定，同一套房有多个业主的，<b>采用第一个投票业主的意见</b>；既自行投票又委托他人投票的，<b>采用业主本人的意见</b>。建议由产权人本人操作。</div>
+    </details>
+
+    <details class="faq">
+      <summary>同一个人有两套房，能投两次吗？</summary>
+      <div class="body"><b>不能，同一个人名下几套房都只算一个人，只能投一次。</b><br>
+      规定是：业主人数按「专有部分」（也就是一套房）的数量计算，但<b>同一买受人拥有一个以上专有部分的，按一人计算</b>。所以一个人名下有两套房时，<b>人数上只算 1 人</b>，只能形成一个表决意见；但<b>面积上两套都算</b>，两套的专有部分面积会一起计入。<br>
+      反过来说，如果两套房<b>分别登记在不同人名下</b>（例如夫妻各一套），那就是两个业主，<b>可以各投一次</b>，合计 2 人 2 票。如果一套房登记了两个人，仍然只算 1 人，两个人都去投的话，<b>采用第一个投票业主的意见</b>。<br>
+      依据：《最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释》第九条、《惠州市住房和城乡建设局业主大会和业主委员会指导规则》第八条。最终以本次业主大会通告和投票系统的实际显示为准。</div>
+    </details>
+
+    <details class="faq">
+      <summary>一套房有两个业主，能各投一票吗？</summary>
+      <div class="body"><b>不能，这套房只算 1 个人、1 票。</b><br>
+      规定是：业主人数按「专有部分」（也就是一套房）的数量计算，<b>一个专有部分按一人计算</b>；惠州还进一步明确，<b>一个专有部分有两个以上所有权人的，应当推选一人行使表决权，共有人所代表的业主人数为一人</b>。面积也只按这一套房子计算，不会因为业主多而翻倍。<br>
+      如果两个人都去投了，这套房的意见<b>采用第一个投票业主的意见</b>，后投的那一次不改变结果。<br>
+      建议这样办：<b>两位共有人先商量好，推举一人去投</b>；或者由其中一人出具<b>书面委托书</b>，连同业主身份证明、不动产权属证明和代理人身份证明，交给<b>居（村）民委员会</b>，由居委会核实后在系统里代为录入。<br>
+      如果有人没经其他共有人同意就单独投了，其他共有人可以在<b>表决结果公示期内（公示 30 日）</b>向街道办事处实名书面提出异议并提交证据，经核实的会重新统计。<br>
+      依据：《广东省物业管理条例》第二十二条、《惠州市住房和城乡建设局业主大会和业主委员会指导规则》第八条、《惠州市业主大会会议电子投票表决操作指引（2025修订版）》第十四条、第十五条、第二十一条。最终以本次业主大会通告和投票系统的实际显示为准。</div>
+    </details>
+
+    <details class="faq">
+      <summary>提交后还能改吗？</summary>
+      <div class="body"><b>不能改。</b>提交保存后即为最终意见，请确认清楚再点提交。</div>
+    </details>
+
+    <details class="faq">
+      <summary>投票什么时候截止？</summary>
+      <div class="body">投票通道于 <b>2026 年 9 月 15 日 10:00 开放</b>，<b>至 2026 年 10 月 15 日 10:00 截止</b>，逾期无法补投。<b>建议尽早完成，不要拖到最后一天</b>——万一那时人脸认证或刷脸不顺利，就来不及补救了。</div>
+    </details>
+
+    <details class="faq">
+      <summary>刷脸会泄露个人信息吗？</summary>
+      <div class="body">认证与授权由粤省事平台（广东省政务服务和数据管理局）统一提供，信息仅用于核验业主身份，办事单位为惠州市住房和城乡建设局。</div>
+    </details>
+
+    <details class="faq">
+      <summary>投完票，别人能知道我投了谁、有没有投吗？</summary>
+      <div class="body"><b>邻居看不到你投给了谁。</b>系统对外公布的是<b>汇总数字</b>——参与表决的业主人数和专有部分面积、各议题同意的人数与面积等，不会列出「哪一户投了什么」。你自己则可以在粤省事里<b>查询本人的表决意见</b>，以及参与投票的总人数和总面积。<br>
+      所以真正会泄露选择的，其实是<b>把手机或验证码交给别人代操作</b>。请务必自己投，不要请人「帮你在手机上点一下」。<br>
+      依据：《惠州市业主大会会议电子投票表决操作指引（2025修订版）》第十三条、第十八条。</div>
+    </details>
+  </div>
+
+  <!-- 结尾：小区实景，给页面一个落点 -->
+  <figure class="closing reveal">
+    <img src="翡翠山环湖别墅.jpg?v=2" alt="小区实景：红砖别墅环抱人工湖，湖面倒映蓝天绿树" width="1500" height="1125" loading="lazy" decoding="async">
+    <figcaption>我们的家园 · 请投出您的一票</figcaption>
+  </figure>
+
+  <footer class="foot">
+    <p>
+      本页由小区业主自行整理，仅在本小区业主范围内传阅，<b>不是政府或粤省事官方发布的文件</b>。截图采集于 <b>2026 年 9 月 14 日</b>（指引版本 <b>v1.20</b>），实际界面以粤省事当前显示为准。截图中的个人身份信息已作遮蔽处理，<b>红色方框与箭头为后加的操作指引标记</b>，非平台原有界面元素。
+    </p>
+  </footer>
+
+</main>
+
+<!-- 点击放大用的遮罩层 -->
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="截图放大预览" hidden>
+  <button class="close" type="button" aria-label="关闭">×</button>
+  <img alt="">
+  <p class="cap"></p>
+</div>
+
+<script>
+  // 滚动渐显
+  (function () {
+    var items = document.querySelectorAll('.reveal');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(items, function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+  })();
+
+  // 点击截图放大；Esc 或点击遮罩关闭；关闭后焦点回到原图
+  (function () {
+    var box = document.getElementById('zoom');
+    var bigImg = box.querySelector('img');
+    var cap = box.querySelector('.cap');
+    var btn = box.querySelector('.close');
+    var lastFocus = null;
+
+    function open(img) {
+      lastFocus = img;
+      bigImg.src = img.currentSrc || img.src;
+      bigImg.alt = img.alt || '';
+      cap.textContent = img.alt || '';
+      box.hidden = false;
+      box.classList.add('on');
+      document.body.classList.add('locked');
+      btn.focus();
+    }
+    function close() {
+      box.classList.remove('on');
+      box.hidden = true;
+      document.body.classList.remove('locked');
+      bigImg.removeAttribute('src');
+      if (lastFocus) { lastFocus.focus(); lastFocus = null; }
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('.shot'), function (img) {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.addEventListener('click', function () { open(img); });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); }
+      });
+    });
+
+    box.addEventListener('click', function (e) {
+      if (e.target === box || e.target === bigImg) { close(); }
+    });
+    btn.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !box.hidden) { close(); }
+    });
+  })();
+
+  // 打印前把折叠内容全部展开，打完再恢复。
+  // 为什么必须用脚本：闭合的 details 是浏览器通过插槽机制隐藏内容的，
+  // 作者样式写 display:block !important 也不生效（实测 details 高度仍只有 24px）。
+  // 本页的「详细说明」和 FAQ 都默认折叠，不展开就会整段印不出来。
+  (function () {
+    var opened = [];
+    window.addEventListener('beforeprint', function () {
+      opened = [];
+      Array.prototype.forEach.call(document.querySelectorAll('details'), function (d) {
+        if (!d.open) { d.open = true; opened.push(d); }
+      });
+    });
+    window.addEventListener('afterprint', function () {
+      Array.prototype.forEach.call(opened, function (d) { d.open = false; });
+      opened = [];
+    });
+  })();
+</script>
+
+</body>
+</html>
